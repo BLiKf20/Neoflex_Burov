@@ -34,7 +34,7 @@ public class CalculateAmountOfVacationPayServiceImpl implements CalculateAmountO
         result = (numberOfVacationsDaysWithoutHolidaysAndWeekends > 0) ?
                 String.format("%.2f", averageSalaryPerYear / numberOfMonths /
                         averageNumberOfDaysAtMonth * numberOfVacationsDaysWithoutHolidaysAndWeekends) :
-                "Введены не корректные данные";
+                        "Введены не корректные данные";
         /*return "Количество дней запланированного отпуска составляет: "+ numberOfVacationsDays +
                 "\nКоличество праздников в отпуске составляет: " + (numberOfVacationsDays - numberOfVacationsDaysWithoutHolidaysAndWeekends) +
                 "\nСумма отпускных с учетом праздников составит: " + result;
