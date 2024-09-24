@@ -27,10 +27,11 @@ public class CalculateAmountOfVacationPayServiceImpl implements CalculateAmountO
                                                Integer numberOfVacationsDays,
                                                LocalDate dateOfStartVacation) {
         String result;
-        Integer numberOfVacationsDaysWithoutHolidaysAndWeekends =
-                getNumberOfVacationsDaysWithoutHolidaysAndWeekends(dateOfStartVacation,
-                        dateOfStartVacation.plusDays(numberOfVacationsDays));
-        result = (averageSalaryPerYearIsValid(averageSalaryPerYear) && numberOfVacationsDayIsValid(numberOfVacationsDays)) ?
+        Integer numberOfVacationsDaysWithoutHolidaysAndWeekends = (averageSalaryPerYearIsValid(averageSalaryPerYear) 
+                                                                   && numberOfVacationsDayIsValid(numberOfVacationsDays)) ?
+                getNumberOfVacationsDaysWithoutHolidaysAndWeekends(dateOfStartVacation, dateOfStartVacation
+                                                                   .plusDays(numberOfVacationsDays)) : -1;
+        result = (numberOfVacationsDaysWithoutHolidaysAndWeekends > 0) ?
                 String.format("%.2f", averageSalaryPerYear / numberOfMonths /
                         averageNumberOfDaysAtMonth * numberOfVacationsDaysWithoutHolidaysAndWeekends) :
                 "Введены не корректные данные";
